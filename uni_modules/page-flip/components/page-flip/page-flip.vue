@@ -87,7 +87,7 @@ export default {
 
 <style scoped lang="scss">
 .book {
-    perspective: 1000px;
+    perspective: 3000px;
     transform-style: preserve-3d;
     position: relative;
     height: 100%;
