@@ -1,10 +1,9 @@
 <template>
 	<view class="content">
 		<view style="height: 80%; width: 80%;">
-			<page-flip :papers="papers" />
+			<page-flip :papers="papers" @pageChange="pageChange"/>
 		</view>
 	</view>
-
 </template>
 
 <script>
@@ -14,14 +13,18 @@ export default {
 			papers: [],
 		};
 	},
-	onLoad() {
-		const baseurl = "/static/新人教初中七下生物(2022版课标修订)-图片";
-		for (let i = 0; i <= 142; i++) {
+	mounted() {
+		const baseurl = "https://raw.githubusercontent.com/jinhuan138/page-flip/main/static/新人教初中七下生物(2022版课标修订)-图片";
+		for (let i = 0; i <= 10; i++) {
 			this.papers.push(`${baseurl}-${i}.jpg`);
 		}
 		console.log(this.papers);
 	},
-	methods: {},
+	methods: {
+		pageChange(page) {
+			console.log("当前页码", page);
+		},
+	},
 };
 </script>
 
@@ -34,22 +37,4 @@ export default {
 	height: 100vh;
 }
 
-.logo {
-	height: 200rpx;
-	width: 200rpx;
-	margin-top: 200rpx;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 50rpx;
-}
-
-.text-area {
-	display: flex;
-	justify-content: center;
-}
-
-.title {
-	font-size: 36rpx;
-	color: #8f8f94;
-}
 </style>

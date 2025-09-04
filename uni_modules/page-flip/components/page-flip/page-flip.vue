@@ -2,8 +2,8 @@
     <view class="book" @click="handleClick">
         <view v-for="(item, index) in bookPapers" class="list-page" :class="{ flipped: page > index }" :key="index"
             :style="[pageStyle(index)]">
-            <image :src="item.frontPage" class="front-page" lazy-load/>
-            <image :src="item.backPage || item.frontPage " class="back-page" lazy-load/>
+            <image :src="item.frontPage" class="front-page" lazy-load />
+            <image :src="item.backPage || item.frontPage" class="back-page" lazy-load />
         </view>
     </view>
 </template>
@@ -27,7 +27,7 @@ export default {
     },
     watch: {
         page(val) {
-            this.$emit("pageChange", val);
+            this.$emit("pageChange", val * 2);
         },
     },
     computed: {
@@ -59,11 +59,11 @@ export default {
         pageStyle(index) {
             if (this.page > index) {
                 return {
-                    transform: `translateZ(${index*0.1}px) rotateY(-180deg) translateX(4%)`,
+                    transform: `translateZ(${index * 0.1}px) rotateY(-180deg) translateX(4%)`,
                 };
             } else {
                 return {
-                    transform: `translateZ(${(this.bookPapers.length - index)*0.1}px)`,
+                    transform: `translateZ(${(this.bookPapers.length - index) * 0.1}px)`,
                 };
             }
         },
@@ -98,7 +98,7 @@ export default {
         height: 80%;
         width: 49%;
         position: absolute;
-        right:0;
+        right: 0;
         top: 0;
         transform-origin: left;
         transform-style: preserve-3d;
