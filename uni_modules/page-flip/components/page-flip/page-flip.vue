@@ -112,6 +112,7 @@ export default {
             top: 0;
             left: 0;
             backface-visibility: hidden; //隐藏旋转元素的背面
+            box-shadow: 2rpx 0px 4rpx 0px #0000004d;
         }
 
         .back-page {
